@@ -1,0 +1,31 @@
+@host= http://localhost:3000
+
+GET {{host}}/
+
+
+### calling publish method of app
+
+POST {{host}}/publish
+Content-Type: application/json
+
+{ 
+    "data": { 
+        "message1": 
+        "Helloworld!" 
+        }, 
+    "operation": "create" 
+}
+
+
+### Calling Dapr directly
+
+POST http://localhost:3500/v1.0/bindings/orders-pubsub 
+Content-Type: application/json
+
+{ 
+    "data": { 
+        "message1": 
+        "Hello!" 
+        }, 
+    "operation": "create" 
+}
